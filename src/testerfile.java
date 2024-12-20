@@ -8,7 +8,6 @@ public class testerfile {
         boolean jerry = false;
         String rowC = new String("????");
         String colC = new String("????");
-
         /*
          * accepts the RxC dimentions 
          */
@@ -44,7 +43,6 @@ public class testerfile {
             }
         }
         
-
         System.out.println("success");
         print2D(matrix);
         jerry = false;
@@ -61,11 +59,7 @@ public class testerfile {
             }else{
                 System.out.println("that was not one of the options! D:<");
             }
-                
-            
-            
         }
-
         scanner.close();
     } // end main
 
@@ -81,45 +75,6 @@ public class testerfile {
         }else {
             System.out.println("the determinent of this matrix is  " + recurs(mat, row));
         }
-        /*int[][][] ahah = new int[row-1][row-1][row];
-        if(row > 2){
-            for(int z = 0; z < row; z++){
-                for(int i = 0; i< row-1;i++){
-                    for(int j = 0; j<row-1;j++){
-                        ahah[i][j][z] = mat[row-i][row-j];
-                    }
-                }
-            } IDEA OF A 3D MATRIX 
-        }*/
-
-        /*if(row == 3){
-            int[][] won = new int[2][2];
-            int[][] tue = new int[2][2];
-            int[][] tree = new int[2][2];
-
-            for(int i = 0; i<2; i++){
-                for(int j = 0; j<2; j++){
-                    won[i][j] = mat[i+1][j+1];
-                }
-            }
-
-            for(int i = 0; i<2; i++){
-                for(int j = 0; j<2; j++){
-                    tree[i][j] = mat[i][j+1];
-                }
-            }
-
-            for(int i = 0; i<2; i++){
-                for(int j = 0; j<2; j++){
-                    tue[i][j] = mat[i+(i%2)][j+1];
-                }
-            }
-
-            determinent = (mat[0][0]*determi(won,2,2)) - (mat[1][0]*determi(tue,2,2)) + (mat[2][0]*determi(tree,2,2));
-            return determinent;
-
-        }*/
-
     }
 
     public static int recurs(int mat[][], int size){
@@ -144,10 +99,6 @@ public class testerfile {
                 }
             }
 
-
-
-
-
             det = det+ (Math.pow(-1, 1+i)*mat[0][i]*recurs(pat, size-1));
         }
         int caca = (int) det;
@@ -160,6 +111,19 @@ public class testerfile {
         int det = ad-bc;
         return det;
     }
+
+    public static void rowswap(int mat[][], int cval, int row1, int row2){ // assume zero index for variables
+        int[] temp = new int[cval];
+        for(int i = 0; i< cval; i++){
+            temp[i] = mat[row1][i];
+        }
+        for(int k = 0; k< cval; k++){
+            mat[row1][k] = mat[row2][k];
+        }
+        for(int t = 0; t< cval; t++){
+            mat[row2][t] = temp[t];
+        }
+    } // i KNOW this part is hella wordy but thats just how i write it OKAY!
 
     public static void print2D(int mat[][])
     {
