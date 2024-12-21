@@ -1,9 +1,30 @@
 import java.util.*;
 import javax.swing.*;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.awt.Color;
 import java.math.*;
 
-public class testerfile {
+public class testerfile extends Application{
+
+    @Override
+    public void start(Stage arg0) throws Exception{// start the javafx
+        Group root = new Group();
+        Scene scene = new Scene(root);
+        arg0.setScene(scene);
+
+        arg0.show();
+    }
+
+
     public static void main(String[] args){
+        launch(args); // for javafx
+        //GUI gui = new GUI();// for jframe
+
         Scanner scanner = new Scanner(System.in);       
         boolean jerry = false;
         String rowC = new String("????");
@@ -62,6 +83,8 @@ public class testerfile {
         }
         scanner.close();
     } // end main
+
+    
 
     /*
      * to find the determinant
