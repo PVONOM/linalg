@@ -1,23 +1,44 @@
 import java.util.*;
-import javax.swing.*;
 
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.awt.Color;
-import java.math.*;
 
 public class testerfile extends Application{
 
-    @Override
-    public void start(Stage arg0) throws Exception{// start the javafx
-        Group root = new Group();
-        Scene scene = new Scene(root);
-        arg0.setScene(scene);
+    Button butt;
 
-        arg0.show();
+    @Override
+    public void start(Stage stage) throws Exception{// start the javafx
+
+        //new button
+        butt = new Button("enter the size of the matrix!");
+        butt.setOnAction(e-> buttonClick());
+
+        // makes pane
+        BorderPane pane = new BorderPane();
+        pane.setTop(butt);
+
+        Group root = new Group();
+        Scene scene = new Scene(pane, Color.OLIVE);
+  
+        stage.setWidth(640); 
+        stage.setHeight(480);  
+        stage.setResizable(false);
+
+        stage.setScene(scene);
+        stage.show();
+    }// 640x480
+
+    public void buttonClick(){
+        //GUIfunctions.buttonClick();
+
+        butt.setText("this button has no function");
     }
 
 
@@ -25,13 +46,13 @@ public class testerfile extends Application{
         launch(args); // for javafx
         //GUI gui = new GUI();// for jframe
 
-        Scanner scanner = new Scanner(System.in);       
+        /*Scanner scanner = new Scanner(System.in);       
         boolean jerry = false;
         String rowC = new String("????");
         String colC = new String("????");
         /*
          * accepts the RxC dimentions 
-         */
+         *
         while (!jerry) {
             System.out.println( "enter the number of rows of ur matrix " );
             rowC = scanner.nextLine();
@@ -81,26 +102,39 @@ public class testerfile extends Application{
                 System.out.println("that was not one of the options! D:<");
             }
         }
-        scanner.close();
+        scanner.close();*/
     } // end main
+
+
+    /*int Click = 0;
+     *
+     * button click
+     *
+    public void buttonClick(){
+        Click++;
+
+        if(Click >0){
+            butt.setText("this button has no function");
+        }
+    }*/
 
     
 
     /*
      * to find the determinant
-     */
+     *
     public static void determi(int mat[][], int row , int col){
         if( row != col){
             System.out.print("only square matrices can have a determinent!!");
         }
         if( row ==2){
-            System.out.println("the determinent of this matrix is  " + twoByTwo(mat));
+            System.out.println("the determinent of this matrix is  " + functions.twoByTwo(mat));
         }else {
-            System.out.println("the determinent of this matrix is  " + recurs(mat, row));
+            System.out.println("the determinent of this matrix is  " + functions.recurs(mat, row));
         }
-    }
+    }*/
 
-    public static int recurs(int mat[][], int size){
+    /*public static int recurs(int mat[][], int size){
         if(size == 2){
             return twoByTwo(mat);
         }
@@ -146,13 +180,15 @@ public class testerfile extends Application{
         for(int t = 0; t< cval; t++){
             mat[row2][t] = temp[t];
         }
-    } // i KNOW this part is hella wordy but thats just how i write it OKAY!
+    } // i KNOW this part is hella wordy but thats just how i write it OKAY!*/
 
+    /* 
+    THIS IS THE OLD PRINT FUNCTION
     public static void print2D(int mat[][])
     {
         // Loop through all rows
         for (int[] row : mat)
             System.out.println(Arrays.toString(row));
-    }
+    }*/
 
 } // end of file 

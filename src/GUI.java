@@ -1,4 +1,4 @@
-import javax.swing.*;
+/*import javax.swing.*;
 import java.awt.Color;
 
 
@@ -16,4 +16,4 @@ public class GUI extends JFrame { // child of jframe
 }
 
 
-
+*/
