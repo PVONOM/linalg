@@ -1,50 +1,151 @@
-import java.util.*;
+
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
-public class testerfile extends Application{
+public class testerfile extends Application{ // I GIVE UP ON USING JAVAFX I WILL USE SWING INSTEAD 
 
     Button butt;
+    Scene scene1;
+    Label boob;
+
+    Button second;
+    Scene secondScene;
+    Label secondLabel;
+
+    Scene matrixSizeInput;
+    Button enter;
+    Label RC;
+
+    Stage stage;
 
     @Override
-    public void start(Stage stage) throws Exception{// start the javafx
+    public void start(Stage stagenull) throws Exception{// start the javafx
 
-        //new button
-        butt = new Button("enter the size of the matrix!");
-        butt.setOnAction(e-> buttonClick());
+        stage = stagenull; // for the stage setup
+
+        // instance of the GUIfuctions
+        buttonFuctions click = new buttonFuctions();
+
+        //1st button
+        butt = new Button();
+        butt.setText("click da button");
+        butt.setOnAction(click);// creates function of the button 
+        boob = new Label("this is scene 1");
+
+
+        // 2nd button
+        second = new Button();
+        second.setText("if this displays, the scene is correctly changed");
+        second.setOnAction(click);
+        secondLabel = new Label("this is scene 2, click the button again to enter matrix numbers");
+
+        //3rd button and scene
+        HBox size = new HBox(10);
+        enter = new Button();
+        enter.setText("enter");
+        enter.setOnAction(click);
+        RC = new Label("enter the values for # of rows and # of cols");
+        TextField rowField = new TextField("3");
+        TextField coField = new TextField("3");
+        size.getChildren().addAll(enter,RC, rowField, coField); // WORK ON THIS TOMORROW 
+        matrixSizeInput = new Scene(size);
+
 
         // makes pane
-        BorderPane pane = new BorderPane();
-        pane.setTop(butt);
+        BorderPane pane = new BorderPane(); //THIS PART IS NOT USED YET
+        pane.setCenter(butt); // layout pane
 
-        Group root = new Group();
-        Scene scene = new Scene(pane, Color.OLIVE);
+        //Group root = new Group(); // what is difference between group, pane? idk what a group is
+        Scene scene = new Scene(pane, Color.AQUA); // basically the window 
+
+
+
+        // makes vbox? pane?
+        VBox pane1 = new VBox(10);
+        pane1.getChildren().addAll(butt,boob);
+        // scene asociated w/ this panel
+        scene1 = new Scene(pane1);
+    
+        // makes vbox for 2nd scene
+        VBox paneTwo = new VBox(10);
+        paneTwo.getChildren().addAll(second,secondLabel);
+        // scene asociated w/ this panel
+        secondScene = new Scene(paneTwo);
   
+
         stage.setWidth(640); 
         stage.setHeight(480);  
         stage.setResizable(false);
 
-        stage.setScene(scene);
+        stage.setScene(scene1);
+        stage.setTitle("linear algebra");
         stage.show();
+
+
+
+        
     }// 640x480
 
-    public void buttonClick(){
-        //GUIfunctions.buttonClick();
+        public void startButtonClick(){
+            //GUIfunctions.buttonClick();
 
-        butt.setText("this button has no function");
-    }
+            stage.setScene(secondScene);
+            //BorderPane dim = new BorderPane();
 
+        }
+
+        public void secndButtClick(){
+            stage.setScene(matrixSizeInput);
+        }
+        
 
     public static void main(String[] args){
         launch(args); // for javafx
         //GUI gui = new GUI();// for jframe
+    }
+
+    private class buttonFuctions implements EventHandler<ActionEvent>{
+        @Override public void handle(ActionEvent e){
+            if(e.getSource()== butt)
+                startButtonClick();
+
+
+            if(e.getSource()==second){
+                secndButtClick();
+            }
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /*Scanner scanner = new Scanner(System.in);       
         boolean jerry = false;
@@ -103,7 +204,7 @@ public class testerfile extends Application{
             }
         }
         scanner.close();*/
-    } // end main
+    //} // end main
 
 
     /*int Click = 0;
@@ -191,4 +292,4 @@ public class testerfile extends Application{
             System.out.println(Arrays.toString(row));
     }*/
 
-} // end of file 
+//} // end of file 

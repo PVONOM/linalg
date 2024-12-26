@@ -36,7 +36,7 @@ public class functions {
         return det;
     }
 
-    public static void rowswap(int mat[][], int cval, int row1, int row2){ // assume zero index for variables
+    public void rowswap(int mat[][], int cval, int row1, int row2){ // assume zero index for variables
         int[] temp = new int[cval];
         for(int i = 0; i< cval; i++){
             temp[i] = mat[row1][i];

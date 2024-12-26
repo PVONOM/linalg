@@ -1,0 +1,21 @@
+public class GUIfunctions implements EventHandler <ActionEvent>{
+
+    GUIfuctions(){
+        handle();
+    }
+
+    
+    @Override public void handle(ActionEvent e){
+        if(e.getSource()==butt){
+            buttonClick();
+        }
+    }
+
+    int Click = 0;
+    /*
+     * button click
+     */
+    public void buttonClick(){
+            butt.setText("this button has no function");
+    }
+}

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "mycalc",
+            "request": "launch",
+            "mainClass": "mycalc",
+            "projectName": "linalg_ddadebf9"
+        },
+        {
+            "type": "java",
+            "name": "calc",
+            "request": "launch",
+            "mainClass": "calc",
+            "projectName": "linalg_ddadebf9"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "com.example.App",
