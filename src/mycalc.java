@@ -80,11 +80,13 @@ public class mycalc implements ActionListener {
                 try {
                     numrows = Integer.parseInt(rowField.getText());
                     numcols = Integer.parseInt(colField.getText());
+                    if(numcols < 1 || numrows < 1 ){
+                        throw new NumberFormatException();
+                    }
                     text.setText("ENTER THE NUMBER VALUES FOR THE MATRIX");
-                    // for future use: MAKE IT FAIL PROOF BY CATCHING WHEN THIS INPUT IS ZERO
                     matrixInput(numrows,numcols);
                 } catch (NumberFormatException w) {
-                    text.setText("THAT WAS NOT AN INTEGER! TRY AGAIN");
+                    text.setText("THAT WAS NOT AN VALID INPUT!");
                 }
         }
         if(e.getSource() == enterValButton){
